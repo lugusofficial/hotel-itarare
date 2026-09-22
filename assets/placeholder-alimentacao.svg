@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="t">
+  <title id="t">Foto do salão de café (fornecer)</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e3c4"/><stop offset="1" stop-color="#f1e3c4"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/>
+  
+  <rect x="0" y="0" width="800" height="600" fill="#f1e3c4"/>
+  <rect x="0" y="380" width="800" height="220" fill="#ffffff"/>
+  <rect x="0" y="360" width="800" height="30" rx="8" fill="#025b7c"/>
+  <g fill="#e5f4f9" stroke="#5795aa" stroke-width="4"><circle cx="200" cy="440" r="58"/><circle cx="420" cy="440" r="58"/><circle cx="640" cy="440" r="58"/></g>
+  <g fill="#e88a5a"><circle cx="200" cy="440" r="26"/><circle cx="640" cy="440" r="26"/></g>
+  <g fill="#f2b35b"><circle cx="420" cy="440" r="26"/></g>
+  <rect x="330" y="120" width="140" height="190" rx="24" fill="#7cc0d3"/><rect x="345" y="140" width="110" height="60" rx="14" fill="#ffffff" opacity="0.7"/>
+  <circle cx="120" cy="140" r="50" fill="#f2b35b"/>
+  <rect x="507" y="550" width="273" height="30" rx="15" fill="#0b2a3d" opacity="0.9"/><text x="643" y="569" text-anchor="middle" font-family="Manrope, system-ui, Arial, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Foto do salão de café (fornecer)</text>
+</svg>

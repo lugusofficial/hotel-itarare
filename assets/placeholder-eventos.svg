@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="t">
+  <title id="t">Foto do salão de eventos (fornecer)</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e5f4f9"/><stop offset="1" stop-color="#e5f4f9"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/>
+  
+  <rect x="0" y="0" width="800" height="600" fill="#e5f4f9"/>
+  <rect x="60" y="80" width="680" height="240" rx="18" fill="#7cc0d3"/>
+  <rect x="60" y="80" width="680" height="120" rx="18" fill="#f9d9b0"/>
+  <rect x="60" y="190" width="680" height="130" fill="#2f8aa6"/>
+  <rect x="100" y="380" width="600" height="60" rx="30" fill="#ffffff"/>
+  <g fill="#025b7c"><rect x="140" y="460" width="70" height="60" rx="14"/><rect x="260" y="460" width="70" height="60" rx="14"/><rect x="380" y="460" width="70" height="60" rx="14"/><rect x="500" y="460" width="70" height="60" rx="14"/><rect x="620" y="460" width="70" height="60" rx="14"/></g>
+  <g fill="#e88a5a"><circle cx="250" cy="395" r="9"/><circle cx="400" cy="395" r="9"/><circle cx="550" cy="395" r="9"/></g>
+  <rect x="484" y="550" width="296" height="30" rx="15" fill="#0b2a3d" opacity="0.9"/><text x="632" y="569" text-anchor="middle" font-family="Manrope, system-ui, Arial, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Foto do salão de eventos (fornecer)</text>
+</svg>

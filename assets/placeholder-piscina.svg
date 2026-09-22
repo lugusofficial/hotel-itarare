@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="800" viewBox="0 0 1200 800" role="img" aria-labelledby="t">
+  <title id="t">Foto da piscina e área comum (fornecer)</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f1e3c4"/><stop offset="1" stop-color="#f1e3c4"/></linearGradient></defs><rect width="1200" height="800" fill="url(#g)"/>
+  
+  <rect x="0" y="0" width="1200" height="800" fill="#f1e3c4"/>
+  <rect x="120" y="180" width="960" height="440" rx="120" fill="#7cc0d3"/>
+  <rect x="150" y="210" width="900" height="380" rx="100" fill="#2f8aa6"/>
+  <path d="M0 330 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0" fill="none" stroke="#7cc0d3" stroke-width="3" stroke-linecap="round"/><path d="M0 430 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0 q18 -4 35 0 t35 0" fill="none" stroke="#7cc0d3" stroke-width="3" stroke-linecap="round"/>
+  <g fill="#ffffff"><rect x="200" y="660" width="140" height="40" rx="12"/><rect x="380" y="660" width="140" height="40" rx="12"/><rect x="560" y="660" width="140" height="40" rx="12"/></g>
+  <g fill="#e88a5a"><rect x="200" y="640" width="140" height="20" rx="10"/><rect x="380" y="640" width="140" height="20" rx="10"/><rect x="560" y="640" width="140" height="20" rx="10"/></g>
+  <circle cx="1000" cy="120" r="70" fill="#f2b35b"/>
+  <path d="M900 700 l40 -120 l40 120 z" fill="#025b7c"/><rect x="936" y="700" width="8" height="40" fill="#0b2a3d"/>
+  <rect x="854" y="750" width="326" height="30" rx="15" fill="#0b2a3d" opacity="0.9"/><text x="1017" y="769" text-anchor="middle" font-family="Manrope, system-ui, Arial, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Foto da piscina e área comum (fornecer)</text>
+</svg>

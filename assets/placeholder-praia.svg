@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600" role="img" aria-labelledby="t">
+  <title id="t">Foto da praia ao fim da tarde (fornecer)</title>
+  <defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f9d9b0"/><stop offset="1" stop-color="#cfe6f0"/></linearGradient></defs><rect width="800" height="600" fill="url(#g)"/>
+  
+  <circle cx="620" cy="150" r="80" fill="#f2b35b"/>
+  <rect x="0" y="300" width="800" height="170" fill="#2f8aa6"/>
+  <path d="M0 350 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0" fill="none" stroke="#7cc0d3" stroke-width="3" stroke-linecap="round"/><path d="M0 410 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0 q18 -5 35 0 t35 0" fill="none" stroke="#7cc0d3" stroke-width="3" stroke-linecap="round"/>
+  <path d="M0 470 Q400 440 800 470 V600 H0 Z" fill="#f1e3c4"/>
+  <g fill="#e88a5a"><circle cx="220" cy="520" r="14"/><circle cx="300" cy="530" r="14"/></g>
+  <g stroke="#0b2a3d" stroke-width="4" stroke-linecap="round"><path d="M220 534 v36 M300 544 v30"/></g>
+  <path d="M120 300 Q200 220 300 280 V300 Z" fill="#0b2a3d" opacity="0.3"/>
+  <rect x="446" y="550" width="334" height="30" rx="15" fill="#0b2a3d" opacity="0.9"/><text x="613" y="569" text-anchor="middle" font-family="Manrope, system-ui, Arial, sans-serif" font-size="13" font-weight="500" fill="#ffffff">Foto da praia ao fim da tarde (fornecer)</text>
+</svg>
