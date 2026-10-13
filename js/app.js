@@ -147,7 +147,8 @@
     // Sobre a cena o veu fica transparente o tempo todo (pedido do cliente,
     // 13/10: "transparente mesmo, nao opaco"). Fora dela, ou com o menu
     // aberto, a faixa e solida, porque o texto branco sumiria no fundo claro.
-    var VEU = 0.22;
+    // O video ja tem veu escuro proprio, entao sobre ele o cabecalho e 0.
+    var VEU = 0;
     function avaliar() {
       var aberto = nav && nav.getAttribute('data-open') === 'true';
       var sobre = !aberto && window.scrollY < limite;
