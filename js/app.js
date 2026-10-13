@@ -144,10 +144,16 @@
       limite = cena.getBoundingClientRect().bottom + window.scrollY - altura;
     }
 
+    // Opacidade do veu: 0.22 no topo, crescendo com a rolagem ate 1 quando a
+    // cena sai de tras do cabecalho. Menu aberto e sempre solido.
+    var MINIMO = 0.22;
     function avaliar() {
       var aberto = nav && nav.getAttribute('data-open') === 'true';
-      header.setAttribute('data-sobre',
-        (!aberto && window.scrollY < limite) ? 'true' : 'false');
+      var sobre = !aberto && window.scrollY < limite;
+      header.setAttribute('data-sobre', sobre ? 'true' : 'false');
+      var fracao = limite > 0 ? Math.min(1, Math.max(0, window.scrollY / limite)) : 1;
+      header.style.setProperty('--opacidade-header',
+        sobre ? (MINIMO + (1 - MINIMO) * fracao).toFixed(3) : '1');
     }
 
     medir();
