@@ -1,0 +1,514 @@
+/* Estilos de secao. Regras base e tokens ficam em base.css e tokens.css: aqui so propriedades customizadas, nunca valor solto. */
+/* Muito branco, azul ceu claro como superficie, azul petroleo na faixa do cabecalho e no rodape, vermelho so no botao de reserva. */
+
+/* Reveal de rolagem. A classe no <html> vem do js/app.js, entao sem script tudo aparece. */
+.js-reveal [data-reveal] { opacity: 0; transform: translateY(18px); transition: opacity 700ms ease, transform 700ms ease; }
+.js-reveal [data-reveal].is-visible { opacity: 1; transform: none; }
+/* Entrada escalonada: itens de lista dentro de um bloco revelado chegam um depois do outro. */
+.js-reveal [data-reveal] :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li) { opacity: 0; transform: translateY(14px); transition: opacity 600ms ease, transform 600ms ease; }
+.js-reveal [data-reveal].is-visible :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li) { opacity: 1; transform: none; }
+.js-reveal [data-reveal].is-visible :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li):nth-child(2) { transition-delay: 90ms; }
+.js-reveal [data-reveal].is-visible :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li):nth-child(3) { transition-delay: 180ms; }
+.js-reveal [data-reveal].is-visible :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li):nth-child(4) { transition-delay: 270ms; }
+.js-reveal [data-reveal].is-visible :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li):nth-child(5) { transition-delay: 360ms; }
+.js-reveal [data-reveal].is-visible :is(.rooms__item, .faixa li, .blocks > li, .depo-lista > li, .rotas li):nth-child(6) { transition-delay: 450ms; }
+
+/* Migalhas */
+.crumbs { padding-block: var(--space-4); }
+.crumbs ol { width: min(100% - 2 * var(--gutter), var(--container)); margin-inline: auto; display: flex; flex-wrap: wrap; gap: var(--space-2); font-size: var(--step--1); color: var(--color-muted); }
+.crumbs li + li::before { content: "/"; margin-right: var(--space-2); color: var(--color-muted); }
+.crumbs a { text-decoration: none; }
+.crumbs a:hover { text-decoration: underline; }
+
+/* Botao de reserva: o vermelho da marca, so aqui. */
+.btn--reserva { background: var(--color-cta); color: var(--color-on-accent); }
+.btn--reserva:hover { opacity: 0.9; }
+.btn__icone { width: 1.25rem; height: 1.25rem; flex: none; }
+
+/* Heroi da home: o video da orla ocupa a secao inteira */
+.cena {
+  position: relative;
+  height: clamp(30rem, 86vh, 50rem);
+  overflow: hidden;
+  background: var(--color-text);
+  /* Sobe por tras do cabecalho. Padrao 0px, entao sem JavaScript a cena fica no lugar normal. */
+  margin-top: calc(-1 * var(--altura-header, 0px));
+}
+.cena__video { position: absolute; inset: 0; width: 100%; height: 100%; display: block; object-fit: cover; border-radius: 0 0 var(--radius-sm) var(--radius-sm); }
+/* Sem autoplay (economia de bateria do iPhone) o Safari desenha um botao de
+   play por cima do video. O botao some; o js/app.js troca o video pelo webp. */
+.cena__video::-webkit-media-controls,
+.cena__video::-webkit-media-controls-start-playback-button { display: none !important; -webkit-appearance: none; }
+.cena__veu {
+  position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(100deg, rgba(11,42,61,0.86) 0%, rgba(11,42,61,0.6) 32%, rgba(11,42,61,0.12) 56%, rgba(11,42,61,0) 70%);
+}
+.cena__texto {
+  position: absolute; inset: 0; display: grid; align-content: center;
+  pointer-events: none; color: var(--color-bg);
+  padding-top: var(--altura-header, 0px);
+  padding-bottom: var(--space-7);
+}
+.cena__texto .label { color: var(--color-rule); }
+.cena__texto h1 { max-width: 15ch; color: var(--color-bg); }
+.cena__texto .lead { max-width: 34ch; color: var(--color-bg); }
+.cena__texto .container { max-width: 64rem; }
+.cena__texto .cluster { gap: var(--space-5); }
+.cena__texto .btn { pointer-events: auto; }
+.cena__texto .btn--link { color: var(--color-bg); }
+.cena__texto :focus-visible { outline-color: var(--color-bg); }
+/* Setinha no pe do heroi: a pagina continua abaixo do video. */
+.cena__seta {
+  position: absolute; left: 50%; bottom: var(--space-5); transform: translateX(-50%);
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
+  color: var(--color-bg); background: rgba(11,42,61,0.5);
+  transition: background 200ms ease;
+}
+.cena__seta:hover { background: var(--color-accent); }
+.cena__seta:focus-visible { outline-color: var(--color-bg); }
+.cena__seta svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+@media (prefers-reduced-motion: no-preference) { .cena__seta svg { animation: seta 2.2s ease-in-out infinite; } }
+@keyframes seta { 0%, 100% { transform: translateY(-3px); } 50% { transform: translateY(4px); } }
+/* No celular o botao do atendente ocupa o canto de baixo a direita; a seta vai para a esquerda, alinhada ao texto. */
+@media (max-width: 55.99em) { .cena__seta { left: var(--gutter); transform: none; } }
+
+@media (max-width: 55.99em) {
+  /* Tela inteira: a cena sobe por tras do cabecalho, entao 100svh enche a tela. */
+  .cena { height: 100svh; min-height: 34rem; }
+  .cena__texto {
+    align-content: start;
+    padding-top: calc(var(--altura-header, 0px) + var(--space-6));
+  }
+  .cena__texto h1 { font-size: var(--step-4); max-width: 13ch; }
+  .cena__texto .lead { max-width: 30ch; }
+  /* O texto fica em cima, entao o veu escurece de cima para baixo. */
+  .cena__veu {
+    background: linear-gradient(180deg, rgba(11,42,61,0.88) 0%, rgba(11,42,61,0.7) 46%,
+      rgba(11,42,61,0.18) 72%, rgba(11,42,61,0) 88%);
+  }
+}
+
+/* Cartoes de apartamento: superficie propria, contorno e foto sangrando no topo.
+   As linhas do grid sao fixas e o resumo recebe 1fr, entao preco e fatos encostam na base. */
+.rooms { display: grid; gap: var(--space-5); align-items: stretch; }
+.rooms__item {
+  max-width: none;
+  display: grid;
+  grid-template-rows: auto 1fr auto auto;
+  gap: 0;
+  background: var(--color-bg);
+  border: 1px solid var(--color-rule);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding-bottom: var(--space-5);
+  position: relative;
+  cursor: pointer;
+  transition: border-color 220ms ease, transform 220ms ease;
+}
+/* O link cobre o cartao inteiro. */
+.rooms__link::after { content: ""; position: absolute; inset: 0; }
+.rooms__item :where(h2, h3, p, li) { user-select: none; }
+.rooms__item:hover { border-color: var(--color-accent); transform: translateY(-3px); }
+.rooms__link { text-decoration: none; display: grid; gap: 0; }
+.rooms__link img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  transition: transform 500ms ease;
+}
+.rooms__foto { display: block; overflow: hidden; border-radius: var(--radius-lg) var(--radius-lg) 0 0; }
+.rooms__item:hover .rooms__link img { transform: scale(1.03); }
+.rooms__link h2, .rooms__link h3 {
+  font-size: var(--step-2);
+  padding-inline: var(--space-5);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-2);
+}
+.rooms__item:hover .rooms__link :is(h2, h3) { color: var(--color-accent); }
+.rooms__resumo { padding-inline: var(--space-5); margin-bottom: var(--space-4); max-width: 36ch; }
+.rooms__fatos {
+  display: flex; flex-wrap: wrap; gap: var(--space-2) var(--space-4);
+  margin: 0 0 var(--space-4); padding-inline: var(--space-5);
+  font-size: var(--step--1); color: var(--color-muted);
+}
+.rooms__fatos li { display: inline-flex; align-items: center; gap: var(--space-2); max-width: none; }
+.fato__icone { width: 1.15rem; height: 1.15rem; color: var(--color-accent); flex: none; }
+.rooms__preco { margin: 0 var(--space-5); display: grid; gap: 2px; }
+.rooms__desde { font-size: var(--step--1); letter-spacing: 0.06em; text-transform: uppercase; color: var(--color-muted); }
+.rooms__valor { display: flex; align-items: baseline; gap: 0.35em; }
+.rooms__valor span { font-size: var(--step--1); color: var(--color-muted); }
+.rooms__valor strong { font-family: var(--font-display); font-weight: var(--weight-display-strong); font-size: var(--step-3); color: var(--color-text); line-height: 1; }
+@media (min-width: 40em) { .rooms { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 72em) { .rooms { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+
+/* Faixa de comodidades com icones */
+.faixa { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-5); }
+.faixa li { max-width: none; display: grid; justify-items: center; text-align: center; gap: var(--space-3); }
+.faixa__icone {
+  width: 4.5rem; height: 4.5rem; padding: 1.1rem;
+  color: var(--color-accent); background: var(--color-surface); border-radius: 50%;
+  transition: transform 300ms ease, color 300ms ease;
+}
+.faixa li:hover .faixa__icone { transform: translateY(-3px); color: var(--color-cta); }
+@media (min-width: 40em) { .faixa { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (min-width: 64em) { .faixa { grid-template-columns: repeat(6, minmax(0, 1fr)); } }
+
+/* Fichas tecnicas */
+.specs { display: grid; gap: var(--space-4); }
+.specs div { display: grid; gap: var(--space-1); }
+.specs dt { display: flex; align-items: center; gap: var(--space-2); font-size: var(--step--1); letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-muted); }
+.specs dd { margin: 0; font-family: var(--font-display); font-size: var(--step-1); line-height: 1.2; }
+.specs--stack dd { font-family: var(--font-body); font-size: var(--step-0); }
+@media (min-width: 40em) { .specs { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-5); } .specs--stack { grid-template-columns: 1fr; } }
+
+/* Pagina de apartamento */
+.room { display: grid; gap: var(--space-7); align-items: start; }
+.room__intro h1 { max-width: 12ch; }
+.room__intro .lead { max-width: 40ch; }
+.fineprint { font-size: var(--step--1); max-width: 46ch; }
+@media (min-width: 64em) { .room { grid-template-columns: 5fr 7fr; gap: var(--space-8); } }
+
+/* Galeria */
+.gal { display: grid; gap: var(--space-4); }
+.gal__viewport { overflow: hidden; border-radius: var(--radius-lg); }
+.gal__track { display: flex; transition: transform 520ms cubic-bezier(0.33, 1, 0.68, 1); }
+.gal__slide { flex: 0 0 100%; min-width: 100%; max-width: none; }
+.gal__slide img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; display: block; }
+.gal__controls { display: flex; align-items: center; gap: var(--space-4); }
+.gal__arrow {
+  background: var(--color-surface); border: 0; border-radius: var(--radius-pill);
+  min-width: 2.75rem; min-height: 2.75rem;
+  display: inline-flex; align-items: center; justify-content: center;
+  color: var(--color-text); transition: background 200ms ease, color 200ms ease;
+}
+.gal__arrow:hover { background: var(--color-accent); color: var(--color-on-accent); }
+.gal__arrow .icon--prev { transform: rotate(180deg); }
+.gal__dots { display: flex; gap: var(--space-2); margin-inline: auto 0; }
+.gal__dots li { max-width: none; display: flex; }
+.gal__dot { width: 1.5rem; height: 1.5rem; padding: 0; background: none; border: 0; display: grid; place-items: center; }
+.gal__dot::before {
+  content: ""; display: block; width: 0.5rem; height: 0.5rem;
+  background: var(--color-rule); border-radius: var(--radius-pill);
+  transition: width 250ms ease, background 250ms ease;
+}
+.gal__dot[aria-current="true"] { width: 2.5rem; }
+.gal__dot[aria-current="true"]::before { background: var(--color-accent); width: 1.5rem; }
+.gal:not(.is-live) .gal__controls { display: none; }
+.gal:not(.is-live) .gal__track { flex-direction: column; gap: var(--space-4); }
+
+/* Tour 360: palco do panorama e a descricao em texto abaixo */
+.tour { display: grid; gap: var(--space-6); align-items: start; }
+.tour__palco { position: relative; display: grid; gap: var(--space-4); }
+.tour__canvas {
+  width: 100%; height: clamp(20rem, 58vw, 36rem); display: block;
+  border-radius: var(--radius-lg); background: var(--color-surface);
+  touch-action: pan-y; user-select: none;
+}
+.tour__capa {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  border-radius: var(--radius-lg); overflow: hidden;
+  height: clamp(20rem, 58vw, 36rem);
+}
+/* Antes de o tour abrir, os controles ficam fora da pagina e da ordem de foco. */
+.tour:not([data-pronto="true"]) .tour__controles,
+.tour:not([data-pronto="true"]) .tour__status { display: none; }
+.tour__capa img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* O veu escurece a foto para o botao se destacar; sem pointer-events none ele come o clique. */
+.tour__capa::after { content: ""; position: absolute; inset: 0; background: rgba(11, 42, 61, 0.4); pointer-events: none; }
+.tour__start { position: relative; z-index: 1; }
+.tour[data-pronto="true"] .tour__capa { display: none; }
+.tour__controles { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+/* 2.75rem de alvo: acima do minimo de 24 px do criterio 2.5.8 da WCAG 2.2 */
+.tour__btn {
+  min-width: 2.75rem; min-height: 2.75rem; padding: 0 var(--space-3);
+  font: inherit; font-size: var(--step--1); line-height: 1;
+  color: var(--color-bg); background: var(--color-text);
+  border: 0; border-radius: var(--radius-pill);
+  cursor: pointer; transition: background 180ms ease;
+}
+.tour__btn:hover { background: var(--color-accent); }
+.tour__btn--texto { padding-inline: var(--space-4); }
+.tour__status { min-height: 1.5em; font-size: var(--step--1); color: var(--color-muted); margin: 0; }
+.tour__aviso { font-size: var(--step--1); color: var(--color-muted); max-width: 48ch; }
+.tour__lado h3 { font-size: var(--step-2); }
+.tour__lista { display: grid; gap: var(--space-3); }
+.tour__lista li { max-width: 40ch; padding-left: var(--space-4); position: relative; }
+.tour__lista li::before { content: ""; position: absolute; left: 0; top: 0.75em; width: 0.5rem; height: 1px; background: var(--color-accent); }
+@media (min-width: 48em) {
+  .tour__lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3) var(--space-6); }
+  .tour__lista li { max-width: none; }
+}
+
+/* Comodidades do apartamento */
+.amen { display: grid; gap: var(--space-4); }
+.amen li { max-width: none; display: grid; grid-template-columns: 1.5rem 1fr; gap: var(--space-3); align-items: center; }
+/* Classe propria, nao .icon: o base.css impoe stroke-width 1.75 a .icon e o conjunto foi equilibrado em 1.5. */
+.amen__icone { width: 1.5rem; height: 1.5rem; color: var(--color-accent); flex: none; }
+@media (min-width: 40em) { .amen { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-4) var(--space-6); } }
+
+/* Outros apartamentos */
+.others { display: grid; gap: var(--space-3); }
+.others li { max-width: none; padding-block: var(--space-2); }
+.others a { text-decoration: none; font-family: var(--font-display); font-size: var(--step-2); }
+.others a:hover { color: var(--color-accent); text-decoration: underline; }
+.others .muted { font-family: var(--font-body); font-size: var(--step--1); }
+
+/* Barra fixa de preco no celular */
+.pricebar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 20;
+  display: flex; align-items: center; justify-content: space-between; gap: var(--space-4);
+  padding: var(--space-3) var(--gutter);
+  background: var(--color-bg); border-top: 1px solid var(--color-rule);
+  transform: translateY(110%); transition: transform 280ms ease;
+}
+.pricebar.is-shown { transform: none; }
+.pricebar__price { margin: 0; font-family: var(--font-display); font-size: var(--step-1); line-height: 1.2; }
+.pricebar .btn { flex: none; white-space: nowrap; }
+@media (min-width: 64em) { .pricebar { display: none; } }
+
+/* Paginas simples: blocos com icone */
+.blocks { display: grid; gap: var(--space-6); }
+.blocks li { max-width: none; }
+.blocks h2 { font-size: var(--step-2); }
+.blocks p { max-width: 50ch; }
+@media (min-width: 48em) { .blocks { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-7); } }
+/* Icone alinhado com o titulo, nao empurrando o texto para o lado. */
+.blocks > li { display: grid; grid-template-columns: 2.75rem 1fr; gap: var(--space-2) var(--space-4); }
+.blocks > li > h2 { margin: 0; align-self: center; }
+.blocks > li > p { grid-column: 2; margin: 0; }
+.blocos__icone {
+  width: 2.75rem; height: 2.75rem; padding: var(--space-2); align-self: center;
+  color: var(--color-accent); background: var(--color-bg); border-radius: 50%; flex: none;
+}
+
+.shot { margin: 0; border-radius: var(--radius-lg); overflow: hidden; }
+.shot img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; transition: transform 700ms ease; }
+.shot:hover img { transform: scale(1.02); }
+.shot--largo img { aspect-ratio: 21 / 9; }
+@media (max-width: 47.99em) { .shot--largo img { aspect-ratio: 3 / 2; } }
+
+/* Dois blocos lado a lado na mesma secao (cafe e eventos na home) */
+.duo { display: grid; gap: var(--space-8); }
+.duo > li { max-width: none; display: grid; gap: var(--space-4); align-content: start; }
+.duo h3 { font-size: var(--step-2); }
+@media (min-width: 48em) { .duo { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-7); } }
+
+/* Contato e reservas */
+.facts { display: grid; gap: var(--space-5); }
+.facts li { display: grid; grid-template-columns: 2.25rem 1fr; gap: 0 var(--space-3); align-items: center; max-width: none; }
+.facts li > .label { grid-column: 2; }
+.facts li > .facts__value { grid-column: 2; }
+.facts__icone { grid-row: span 2; width: 2.25rem; height: 2.25rem; color: var(--color-accent); }
+.facts__icone--whats { color: var(--color-accent); }
+.facts__value { font-family: var(--font-display); font-size: var(--step-2); line-height: 1.2; text-decoration: none; }
+a.facts__value:hover { color: var(--color-accent); text-decoration: underline; }
+@media (min-width: 40em) { .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-7); } .facts--uma { grid-template-columns: 1fr; gap: var(--space-5); } }
+
+/* Rotas de Sao Paulo */
+.rotas { display: grid; gap: var(--space-5); }
+.rotas li { max-width: none; display: grid; grid-template-columns: 2.75rem 1fr; gap: var(--space-1) var(--space-4); align-items: center; }
+.rotas h3 { font-size: var(--step-2); margin: 0; }
+.rotas p { grid-column: 2; margin: 0; }
+.rotas__numeros { font-family: var(--font-display); font-size: var(--step-1); color: var(--color-text); }
+@media (min-width: 48em) { .rotas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-7); } }
+
+/* Faixa final de chamada (eventos e contato) */
+.chamada { display: grid; justify-items: start; gap: var(--space-4); }
+.chamada h2 { max-width: 20ch; }
+
+/* ============================================================
+   Cabecalho, rodape, superficie e densidade
+   ============================================================ */
+
+/* Cabecalho: a faixa azul petroleo do site original, colada no topo. */
+.site-header {
+  --tinta: var(--color-bg);
+  background: var(--color-accent);
+  color: var(--color-bg);
+  position: sticky;
+  top: 0;
+  z-index: 30;
+}
+/* Sobre o video a faixa continua azul petroleo, so que deixa a cena aparecer por baixo. */
+.site-header[data-sobre="true"] { background: rgba(2, 91, 124, 0.82); }
+.site-header .brand,
+.site-header .site-nav a:not(.btn) { color: var(--tinta); }
+.site-header :focus-visible { outline-color: var(--color-bg); }
+.site-nav a[aria-current="page"] { text-decoration: underline; text-underline-offset: 0.35em; text-decoration-thickness: 2px; }
+.site-nav a:not(.btn) { transition: opacity 180ms ease; }
+.site-nav a:not(.btn):hover { opacity: 0.85; }
+/* Botao do menu: pastilha branca fixa, o mesmo contraste sobre a faixa e sobre a cena. */
+.nav-toggle { background: var(--color-bg); color: var(--color-accent); padding: var(--space-2) var(--space-3); }
+
+/* Rodape: a mesma faixa azul petroleo. */
+.site-footer { background: var(--color-accent); color: var(--color-bg); margin-top: auto; }
+.site-footer .brand,
+.site-footer a { color: var(--color-bg); }
+.site-footer a:hover { text-decoration: underline; }
+.site-footer :focus-visible { outline-color: var(--color-bg); }
+.site-footer__nota { color: var(--color-rule); }
+
+/* Superficie alternada entre secoes: branco e azul ceu bem claro. */
+main > section:nth-of-type(even) { background: var(--color-surface); }
+
+/* Filete azul petroleo acima do titulo de cada secao */
+.section > .container > h1::before,
+.section > .container > h2::before,
+.section > .container > .stack > h1::before,
+.section > .container > .stack > h2::before,
+.section > .container > .stack > .stack > h2::before {
+  content: "";
+  display: block;
+  width: 2.5rem;
+  height: 3px;
+  margin-bottom: var(--space-3);
+  background: var(--color-accent);
+  border-radius: var(--radius-pill);
+}
+
+/* Densidade: encurta o respiro redefinindo o token, sem sobrescrever o padding */
+main { --section-gap: clamp(3.5rem, 6vw, 5.5rem); }
+
+/* Rodape grudado no fim da tela em paginas curtas */
+body { min-height: 100svh; display: flex; flex-direction: column; }
+body > main { flex: 1 0 auto; display: flex; flex-direction: column; }
+
+/* Menu horizontal so a partir de 60em: entre 768 e 960 px cinco links e o botao nao cabem numa linha. */
+@media (max-width: 59.99em) {
+  .nav-toggle { display: inline-flex; }
+  .site-nav { display: none; width: 100%; padding-top: var(--space-4); }
+  .site-nav[data-open="true"] { display: block; }
+  .site-nav ul { flex-direction: column; gap: var(--space-3); margin-bottom: var(--space-4); }
+}
+
+/* Tela baixa, largura de desktop: o texto do heroi ancora no topo. */
+@media (min-width: 56em) and (max-height: 44em) {
+  .cena { height: clamp(28rem, 92svh, 50rem); }
+  .cena__texto { align-content: start; padding-top: calc(var(--altura-header, 0px) + var(--space-4)); }
+  .cena__texto h1 { font-size: var(--step-4); }
+}
+
+/* Mapa esquematico da localizacao, em SVG com as cores dos tokens */
+.mapa { margin: 0; border-radius: var(--radius-lg); overflow: hidden; background: var(--color-surface); }
+.mapa svg { width: 100%; height: auto; display: block; }
+
+/* Atendente de demonstracao: balao fixo no canto, painel de conversa.
+   A unica sombra da pagina e a do painel, que flutua sobre qualquer secao. */
+.atendente {
+  position: fixed; right: var(--gutter); bottom: var(--space-4); z-index: 40;
+  display: grid; justify-items: end; gap: var(--space-3);
+}
+.atendente__abrir {
+  display: inline-flex; align-items: center; gap: var(--space-2);
+  min-height: 2.75rem; padding: 0 var(--space-4);
+  border: 0; border-radius: var(--radius-pill);
+  background: var(--color-text); color: var(--color-bg);
+  font: inherit; font-size: var(--step--1); cursor: pointer;
+  transition: background 180ms ease;
+}
+.atendente__abrir:hover { background: var(--color-accent); }
+.atendente__icone { width: 1.25rem; height: 1.25rem; flex: none; }
+.atendente[data-aberto="true"] .atendente__abrir { display: none; }
+.atendente__painel {
+  width: min(22rem, calc(100vw - 2 * var(--gutter)));
+  max-height: min(32rem, calc(100svh - 6rem));
+  display: grid; grid-template-rows: auto minmax(0, 1fr) auto auto auto;
+  background: var(--color-bg); border-radius: var(--radius-lg);
+  box-shadow: 0 12px 40px rgba(11, 42, 61, 0.22);
+  overflow: hidden;
+}
+.atendente__topo {
+  display: flex; justify-content: space-between; align-items: center; gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-accent); color: var(--color-bg);
+}
+.atendente__topo :focus-visible { outline-color: var(--color-bg); }
+.atendente__titulo { margin: 0; font-family: var(--font-display); font-size: var(--step-1); }
+.atendente__fechar {
+  width: 2rem; height: 2rem; display: grid; place-items: center; padding: 0;
+  background: none; border: 0; color: inherit; cursor: pointer; border-radius: var(--radius-pill);
+}
+.atendente__fechar .icon { width: 1rem; height: 1rem; }
+.atendente__mensagens {
+  list-style: none; margin: 0; padding: var(--space-3) var(--space-4);
+  display: grid; gap: var(--space-2); overflow-y: auto; min-height: 8rem;
+}
+.atendente__mensagens li {
+  max-width: 90%; padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-md); font-size: var(--step--1); line-height: 1.45;
+  background: var(--color-surface); justify-self: start;
+}
+.atendente__mensagens li[data-de="visitante"] { background: var(--color-text); color: var(--color-bg); justify-self: end; }
+.atendente__mensagens ul { margin: var(--space-2) 0; padding-left: 1.1em; }
+.atendente__mensagens li li { max-width: none; padding: 0; background: none; font-size: inherit; }
+.atendente__mensagens a { color: inherit; }
+.atendente__chips {
+  list-style: none; margin: 0; padding: 0 var(--space-4) var(--space-2);
+  display: flex; flex-wrap: wrap; gap: var(--space-2);
+}
+.atendente__chips li { max-width: none; }
+.atendente__chips button, .atendente__chips a {
+  display: inline-flex; align-items: center;
+  font: inherit; font-size: var(--step--1); min-height: 2rem; padding: 0 var(--space-3);
+  border: 0; border-radius: var(--radius-pill);
+  background: var(--color-surface); color: var(--color-text); text-decoration: none; cursor: pointer;
+  transition: background 180ms ease;
+}
+.atendente__chips a { background: var(--color-cta); color: var(--color-on-accent); }
+.atendente__chips button:hover { background: var(--color-rule); }
+.atendente__form { display: flex; gap: var(--space-2); padding: var(--space-2) var(--space-4); }
+.atendente__form input {
+  flex: 1; min-width: 0; min-height: 2.75rem; padding: 0 var(--space-3);
+  font: inherit; font-size: var(--step--1);
+  border: 0; border-radius: var(--radius-pill);
+  background: var(--color-surface); color: var(--color-text);
+}
+.atendente__enviar {
+  min-height: 2.75rem; padding: 0 var(--space-4);
+  border: 0; border-radius: var(--radius-pill);
+  background: var(--color-accent); color: var(--color-on-accent);
+  font: inherit; font-size: var(--step--1); cursor: pointer;
+}
+.atendente__aviso { margin: 0; padding: 0 var(--space-4) var(--space-3); font-size: var(--step--1); color: var(--color-muted); }
+/* Nas paginas de apartamento a barra de preco ocupa o rodape da tela no celular. */
+@media (max-width: 63.99em) { body:has(.pricebar.is-shown) .atendente { bottom: 4.75rem; } }
+@media (max-width: 40em) {
+  .atendente__painel { width: calc(100vw - 2 * var(--gutter)); max-height: calc(100svh - 5rem); }
+}
+
+/* Depoimentos em slides: um por tela no celular, dois lado a lado no desktop.
+   Sem script a janela rola com o dedo; com script ela fecha e o trilho anda
+   por transform (js). O espaco entre slides e padding, para o passo ser
+   sempre a largura exata de um slide. */
+.depo__janela { overflow-x: auto; scrollbar-width: none; }
+.depo__janela::-webkit-scrollbar { display: none; }
+.depo.is-live .depo__janela { overflow: hidden; }
+.depo__janela:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 4px; }
+.depo__trilho { display: flex; }
+@media (prefers-reduced-motion: no-preference) { .depo__trilho { transition: transform 500ms ease; } }
+.depo__item { flex: 0 0 100%; box-sizing: border-box; padding-right: var(--space-6); margin: 0; display: grid; gap: var(--space-4); align-content: start; }
+@media (min-width: 56em) { .depo__item { flex-basis: 50%; } }
+.depo__item blockquote { margin: 0; font-family: var(--font-display); font-size: var(--step-2); line-height: 1.3; color: var(--color-text); }
+.depo__item blockquote p::before { content: "\201C"; }
+.depo__item blockquote p::after { content: "\201D"; }
+.depo__item figcaption { color: var(--color-muted); }
+.depo__controles { display: flex; gap: var(--space-3); }
+.depo__seta {
+  display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%;
+  border: 1px solid var(--color-rule); background: transparent; color: var(--color-text); cursor: pointer;
+}
+.depo__seta:hover { border-color: var(--color-accent); color: var(--color-accent); }
+.depo__seta--prev .icon { transform: scaleX(-1); }
+.depo__rodape { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--space-4); }
+
+/* Pagina de depoimentos: todos em lista */
+.depo-lista { display: grid; gap: var(--space-7); }
+.depo-lista > li { max-width: none; }
+.depo-lista figure { margin: 0; display: grid; gap: var(--space-3); }
+.depo-lista blockquote { margin: 0; font-family: var(--font-display); font-size: var(--step-2); line-height: 1.3; }
+.depo-lista blockquote p::before { content: "\201C"; }
+.depo-lista blockquote p::after { content: "\201D"; }
+.depo-lista figcaption { color: var(--color-muted); }
+@media (min-width: 48em) { .depo-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-8) var(--space-7); } }
+.nota { font-size: var(--step--1); color: var(--color-muted); }

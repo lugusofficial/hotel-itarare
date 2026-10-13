@@ -1,0 +1,53 @@
+/* Tokens do site. Muito branco, com as cores da marca como contraste:
+   azul petroleo na faixa do cabecalho e no rodape, vermelho so no botao de reserva. */
+:root {
+  color-scheme: light;
+  --color-bg: #FFFFFF;
+  --color-surface: #EEF7FB;
+  --color-text: #0B2A3D;
+  --color-muted: #47606F;
+  --color-accent: #025B7C;
+  --color-on-accent: #FFFFFF;
+  --color-rule: #CFE0EA;
+  --color-focus: #025B7C;
+  --color-cta: #B0100F;
+
+  --font-display: "Cormorant Garamond", Georgia, 'Times New Roman', serif;
+  --font-body: "Manrope", system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  --weight-display: 500;
+  --weight-display-strong: 600;
+  --weight-body: 400;
+  --weight-body-medium: 500;
+
+  /* Escala fluida. A Cormorant tem olho pequeno, entao os passos de titulo sao um pouco maiores. */
+  --step--1: clamp(0.875rem, 0.85rem + 0.15vw, 0.95rem);
+  --step-0: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
+  --step-1: clamp(1.3rem, 1.18rem + 0.55vw, 1.65rem);
+  --step-2: clamp(1.55rem, 1.35rem + 0.95vw, 2.2rem);
+  --step-3: clamp(1.9rem, 1.5rem + 1.7vw, 2.9rem);
+  --step-4: clamp(2.3rem, 1.65rem + 3vw, 3.9rem);
+  --step-5: clamp(2.7rem, 1.75rem + 4.7vw, 5.1rem);
+
+  --leading-body: 1.6;
+  --leading-tight: 1.08;
+  --measure: 65ch;
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-9: 6rem;
+  --section-gap: clamp(4rem, 8vw, 6rem);
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+
+  --container: 72rem;
+  --gutter: clamp(1rem, 4vw, 2.5rem);
+}

@@ -1,0 +1,384 @@
+{
+ "nome": "Sua Marca",
+ "cidade": "São Vicente",
+ "praia": "Praia do Itararé",
+ "tipos": {
+  "standard": {
+   "nome": "Apartamento Standard",
+   "base": 280,
+   "pagina": "apartamento-standard.html",
+   "hosp": 4,
+   "quartos": 1,
+   "area": 38,
+   "vistaMar": false
+  },
+  "vistamar": {
+   "nome": "Apartamento Vista Mar",
+   "base": 360,
+   "pagina": "apartamento-vista-mar.html",
+   "hosp": 4,
+   "quartos": 1,
+   "area": 42,
+   "vistaMar": true
+  },
+  "familia": {
+   "nome": "Apartamento Família",
+   "base": 460,
+   "pagina": "apartamento-familia.html",
+   "hosp": 6,
+   "quartos": 2,
+   "area": 58,
+   "vistaMar": false
+  }
+ },
+ "andares": [
+  {
+   "numero": 1,
+   "apartamentos": [
+    {
+     "numero": 101,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 102,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 103,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 104,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "indisponivel"
+    }
+   ]
+  },
+  {
+   "numero": 2,
+   "apartamentos": [
+    {
+     "numero": 201,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 202,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 203,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 204,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 3,
+   "apartamentos": [
+    {
+     "numero": 301,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 302,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 303,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 304,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 4,
+   "apartamentos": [
+    {
+     "numero": 401,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 402,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 403,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 404,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 5,
+   "apartamentos": [
+    {
+     "numero": 501,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 502,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 503,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 504,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 6,
+   "apartamentos": [
+    {
+     "numero": 601,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 602,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 603,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 604,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 7,
+   "apartamentos": [
+    {
+     "numero": 701,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 702,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 703,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 704,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 8,
+   "apartamentos": [
+    {
+     "numero": 801,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 802,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 803,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 804,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "indisponivel"
+    }
+   ]
+  },
+  {
+   "numero": 9,
+   "apartamentos": [
+    {
+     "numero": 901,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 902,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 903,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 904,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 10,
+   "apartamentos": [
+    {
+     "numero": 1001,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1002,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1003,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 1004,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 11,
+   "apartamentos": [
+    {
+     "numero": 1101,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1102,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1103,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1104,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  },
+  {
+   "numero": 12,
+   "apartamentos": [
+    {
+     "numero": 1201,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "indisponivel"
+    },
+    {
+     "numero": 1202,
+     "tipo": "vistamar",
+     "vista": "mar",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1203,
+     "tipo": "standard",
+     "vista": "cidade",
+     "status": "disponivel"
+    },
+    {
+     "numero": 1204,
+     "tipo": "familia",
+     "vista": "cidade",
+     "status": "disponivel"
+    }
+   ]
+  }
+ ]
+}
