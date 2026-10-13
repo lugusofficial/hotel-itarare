@@ -331,9 +331,10 @@ a.facts__value:hover { color: var(--color-accent); text-decoration: underline; }
   z-index: 30;
 }
 /* Sobre o video a faixa vira um veu azul petroleo quase transparente, com o
-   video desfocado por baixo, e fica mais opaca conforme a pagina rola: o
-   js/app.js escreve --opacidade-header de 0.22 (topo) ate 1 (fim da cena).
+   video desfocado por baixo, transparente enquanto houver cena atras dele: o
+   js/app.js escreve --opacidade-header 0.22 sobre a cena e 1 fora dela.
    Sem script vale 1, a faixa solida. */
+.site-header { transition: background-color 250ms ease; }
 .site-header[data-sobre="true"] {
   background: rgba(2, 91, 124, var(--opacidade-header, 1));
   -webkit-backdrop-filter: blur(10px) saturate(1.2);
